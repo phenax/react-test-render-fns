@@ -1,4 +1,4 @@
-# Render-fns
+# react-test-render-fns
 A collection of utility functions made from react-test-renderer with high level support for react hooks.
 
 
@@ -11,9 +11,9 @@ Also, WE HAVE SUPPORT FOR HOOKS!! While enzyme is busy lagging three versions be
 ## Usage
 
 ### Mount your Component
-You can use `mount` function to mount your components. This function will mount your component and wrap the redux store provider, router, etc around it.
+You can use `mount` function to mount your components.
 ```js
-import { mount } from '../../test-utils/render-fns';
+import { mount } from 'react-test-render-fns';
 
 describe('Stuff', () => {
   it('should mount', () => {
@@ -22,40 +22,26 @@ describe('Stuff', () => {
 });
 ```
 
-Don't want the additional redux store, etc mounted? You can use `mountVanilla` function to mount your components without those additional wrappers.
-```js
-import { mountVanilla } from '../../test-utils/render-fns';
-
-describe('Stuff', () => {
-  it('should mount', () => {
-    mountVanilla(<YourComponent />);
-  });
-});
-```
-
 
 ### Render your Component for snapshot testing
-You have `renderVanilla`, `render` (similar to `mount` and `mountVanilla`) to render your components. The rest of the api follows snapshot testing as you would with react-test-renderer.
+You have `render` (similar to `mount`) to render your components. The rest of the api follows snapshot testing as you would with react-test-renderer.
 
 
 ### Find your component inside a mounted node
-Differences from enzyme's `.find`
-* Doesn't accept a css selector string or a component, it accepts a function similar to an array's .find method.
-* Returns a single node. For multiple nodes, you can use `.findAll`, which returns an array of nodes.
-* `.find` will throw an error if no nodes were found. `.findAll` returns an array of nodes
 
 ```js
-import { mount } from '../../test-utils/render-fns';
+import { mount } from 'react-test-render-fns';
 
 describe('Stuff', () => {
-  it('should have #myProp', () => {
-    const node = mount(<YourComponent />);
-    expect(node.findAll(n => n.props.id === 'myProp')).toHaveLength(1);
+  it('should have #myElem', () => {
+    const $node = mount(<YourComponent />);
+    expect($node.findAll(n => n.props.id === 'myElem')).toHaveLength(1);
   });
   // Looks shit so we have a shorthand for that
-  it('should have #myProp', () => {
-    const node = mount(<YourComponent />);
-    expect(node.findAll(byId('myProp'))).toHaveLength(1);
+  it('should have #myElem', () => {
+    const $node = mount(<YourComponent />);
+    expect($node.findAll(byId('myElem'))).toHaveLength(1);
+    const $div = $node.find(byId('myElem'));
   });
 });
 ```
@@ -133,7 +119,7 @@ You can simulate an event using `simulate` function.
 NOTE: This does not emulate browser event but instead just calls the on* handler function.
 
 ```js
-import { simulate, createEvent } from '../../test-utils/render-fns';
+import { simulate, createEvent } from 'react-test-render-fns';
 
 const clickHandler = jest.fn();
 
@@ -173,6 +159,4 @@ act(() => {
 This is a list of stuff that is in the pipeline for the library. (Question mark at the end means it's a maybe)
 
 - [ ] `byQuerySelector` filter to allow using query selectors. (Preffered way to do this right now is by composing multiple filters together. `compose(byType('div'), byId('helloworld'))`)?
-- [ ] `simulate` using dispatchEvent?
-- [ ] `html` function to convert node to html string?
 

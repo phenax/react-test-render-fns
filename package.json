@@ -1,0 +1,52 @@
+{
+  "name": "react-test-render-fns",
+  "version": "0.0.0",
+  "description": "React render helper functions for writing unit tests",
+  "main": "index.js",
+  "repository": "https://github.com/phenax/react-test-render-fns",
+  "author": "Akshay Nair <phenax5@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "functional",
+    "hooks",
+    "react",
+    "test",
+    "unit-test",
+    "fp",
+    "js"
+  ],
+  "scripts": {
+    "build": "babel src --out-dir build",
+    "test": "jest --watch",
+    "test:ci": "jest --coverage",
+    "coverage:ci": "codecov"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties"
+    ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.0",
+    "@babel/core": "^7.1.0",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-core": "^7.0.0-bridge",
+    "babel-jest": "^23.6.0",
+    "codecov": "^3.1.0",
+    "jest": "^23.6.0",
+    "react": "^16.8.6"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6"
+  },
+  "dependencies": {
+    "lodash": "^4.17.11",
+    "react-test-renderer": "^16.8.6"
+  }
+}

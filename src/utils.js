@@ -1,7 +1,9 @@
 /* eslint-disable prettier/prettier */
 import { act } from 'react-test-renderer';
-import compose from 'lodash/flowRight';
-import { compose, cond, identity } from '../../helpers/common';
+import { compose } from 'pipey';
+import cond from 'lodash/cond';
+
+const identity = x => x;
 
 export const EMPTY = Symbol.for('renderFns.empty');
 

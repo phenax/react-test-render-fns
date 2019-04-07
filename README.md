@@ -1,6 +1,9 @@
 # react-test-render-fns
 A collection of utility functions made from react-test-renderer with high level support for react hooks.
 
+[![CircleCI](https://img.shields.io/circleci/project/github/phenax/react-test-render-fns/master.svg?style=for-the-badge)](https://circleci.com/gh/phenax/react-test-render-fns)
+[![Codecov](https://img.shields.io/codecov/c/github/phenax/react-test-render-fns.svg?style=for-the-badge)](https://codecov.io/gh/phenax/react-test-render-fns)
+
 
 ## Motivation
 Enzyme is usually very slow with version releases and react is way to quick. So we need something that can stay with the latest react version without breaking on lack of support for new node types. This project doesn't make any assumtions about the node type so its free from cases that break enzyme. In case that something does break due to a new react api, we can easily fix it due to the composible nature of the api and adding new features in the library is super easy as well.

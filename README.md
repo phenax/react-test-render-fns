@@ -1,4 +1,7 @@
 # react-test-render-fns
+
+> [OUTDATED: Please use [react-testing-library](https://github.com/testing-library/react-testing-library) instead]
+
 A collection of utility functions made from react-test-renderer with high level support for react hooks.
 
 [![CircleCI](https://img.shields.io/circleci/project/github/phenax/react-test-render-fns/master.svg?style=for-the-badge)](https://circleci.com/gh/phenax/react-test-render-fns)
